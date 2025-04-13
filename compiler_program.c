@@ -308,7 +308,7 @@ int main(int argc, char *argv[])
 					plc = lc;
 					if((strcasecmp(t1, "LTORG") == 0) || strcasecmp(t1, "END") == 0) 		// LTORG
 						createPool();
-					lc++;
+					++lc;
 					break;
 
 				case 2:
@@ -320,22 +320,22 @@ int main(int argc, char *argv[])
 						{
 							plc = lc;
 							enterSymtab(t2, 0);
-							lc++;
+							++lc;
 						}
 						else if(strcasecmp(t2, "LTORG") == 0)		// label LTORG
 						{
 							plc = lc;
 							createPool();
-							lc++;
+							++lc;
 							plc = lc;
 							enterSymtab(t1, 1);
-							lc++;
+							++lc;
 						}
 						else 		// label STOP
 						{
 							plc = lc;
 							enterSymtab(t1, 1);
-							lc++;
+							++lc;
 						}
 					}
 					break;
@@ -351,7 +351,7 @@ int main(int argc, char *argv[])
 					{
 						plc = lc;
 						enterSymtab(t1, 1);
-						lc++;
+						++lc;
 					}
 					if((strcasecmp(t2, "DS") != 0) && (strcasecmp(t2, "DC") != 0))	// MOVER AREG A or label READ A
 					{
@@ -361,13 +361,13 @@ int main(int argc, char *argv[])
 							{
 								plc = lc;
 								enterLittab(t3);
-								lc++;
+								++lc;
 							}
 							else
 							{
 								plc = lc;
 								enterSymtab(t3, 0);
-								lc++;
+								++lc;
 							}
 						}
 						else	// label READ A
@@ -375,7 +375,7 @@ int main(int argc, char *argv[])
 							plc = lc;
 							enterSymtab(t1, 1);
 							enterSymtab(t3, 0);
-							lc++;
+							++lc;
 						}
 					}
 					break;
@@ -386,14 +386,14 @@ int main(int argc, char *argv[])
 						plc = lc;
 						enterLittab(t4);
 						enterSymtab(t1, 1);
-						lc++;
+						++lc;
 					}
 					else
 					{
 						plc = lc;
 						enterSymtab(t1, 1);
 						enterSymtab(t4, 0);
-						lc++;
+						++lc;
 					}
 					break;
 
