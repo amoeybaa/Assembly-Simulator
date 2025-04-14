@@ -42,20 +42,25 @@ Executes operations with simulated memory of 1000 locations and 4 registers (ARE
 
 ## Compilation
 ```
-gcc compiler_program.c
-gcc simulator_program.c
+gcc compiler_program.c -o compiler
+gcc simulator_program.c -o simulator
 ```
 
 ## Execution
 * Compile the Assembly Code  
   ```
-  ./a input.asm
+  ./compiler input.asm
   ```
-  Generates: input.obj — the object code file.
+  `input.asm` is the name of the file containing Assembly Code which is to be compiled.
+  
+  Generates: `input.obj` — the object code file.
 
   Example assembly programs have been provided.
 
-* Run the Simulator as a usual C program.
+* Run the Simulator as a usual C program
+  ```
+  ./simulator
+  ```
 
 ## Author & Acknowledgements
 This project was part of an educational assignment on building a basic compiler and simulator for Assembly Language from scratch in C.
