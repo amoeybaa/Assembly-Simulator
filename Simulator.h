@@ -1,5 +1,8 @@
 /* header file for simulator functions */
 
+#ifndef SIMULATOR_H
+#define SIMULATOR_H
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -357,3 +360,5 @@ void display()
 	}
 	printf("\n----------------------------------------------------------------\n");
 }
+
+#endif				// SIMULATOR_H

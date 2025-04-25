@@ -1,5 +1,12 @@
 // header file for intermediate code (variant I) generation from assembly language program
 
+#ifndef INTERMEDIATE_H
+#define INTERMEDIATE_H
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
 #define OP_SIZE 10      // Size of operand and opcode word
 
 typedef struct intcode  // structure to define the intermediate code node
@@ -270,3 +277,5 @@ void destroyIntcode() {
         free(curr);
     }
 }
+
+#endif          // INTERMEDIATE_H

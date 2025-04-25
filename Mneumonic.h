@@ -1,5 +1,8 @@
 /* Header file for all mneumonic search operations */
 
+#ifndef MNEUMONIC_H
+#define MNEUMONIC_H
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -192,3 +195,5 @@ void remCom(char *str)
 			str[i] = ' ';
 	}
 }
+
+#endif 		// MNEUMONIC_H

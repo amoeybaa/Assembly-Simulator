@@ -1,5 +1,8 @@
 /* Header file for symbol tabe, literal table and pool table construction and updation */
 
+#ifndef TABLES_H
+#define TABLES_H
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -417,3 +420,5 @@ void printPool() {
 	}
 	printf("\n");
 }
+
+#endif 			// TABLES_H
