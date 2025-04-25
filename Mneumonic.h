@@ -196,4 +196,4 @@ void remCom(char *str)
 	}
 }
 
-#endif 		// MNEUMONIC_H
+#endif 			// MNEUMONIC_H
