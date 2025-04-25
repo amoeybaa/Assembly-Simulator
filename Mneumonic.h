@@ -22,7 +22,7 @@ static int storage_size = sizeof(storage) / sizeof(char *);
 static int cc_size = sizeof(cc) / sizeof(char *);
 
 int isRegtab(char *);  // check if the given register name is a valid register
-int isOptab(char *);   // check if given operator is a valid instriction set operator
+int isOptab(char *);   // check if given operator is a valid instruction set operator
 int isDirtab(char *);  // check if given operator is a valid assembly directive operator
 int isStorage(char *); // check if given operator is a valid storage operator
 int isCc(char *);	   // check if given operator is a valid conditional comparison operator
