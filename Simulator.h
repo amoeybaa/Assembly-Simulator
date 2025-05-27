@@ -126,8 +126,8 @@ void execute()
 			case 8:
 				if (memory[address] == 0)
 				{
-					printf("\nZero Division Error!\n");
-					break;
+					printf("\nERROR: dividing with zero!\nExecution terminated!\n");
+					return;
 				}
 				regs[reg_code - 1] /= memory[address];
 				break;
@@ -248,8 +248,8 @@ void trace()
 			case 8:
 				if (memory[address] == 0)
 				{
-					printf("\nZero Division Error!\n");
-					break;
+					printf("\nERROR: Dividing with zero!\nExecution terminated!\n");
+					return;
 				}
 				regs[reg_code - 1] /= memory[address];
 				break;
