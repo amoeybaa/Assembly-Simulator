@@ -181,7 +181,7 @@ int printSymtab() {
 	printf("\n");
 	for(temp = shead; temp; temp = temp->next)
 	{
-		if(temp->df == 0 && temp->uf == 1) {
+		if(temp->df == -1 && temp->uf == 1) {
 			printf("\nError: Symbol %s is used but not defined!\n", temp->sym);
 			++isError;
 		}
@@ -189,7 +189,7 @@ int printSymtab() {
 			printf("Error: Redeclaration of symbol %s!\n", temp->sym);
 			++isError;
 		}
-		if(temp->uf == 0 && temp->df == 1)
+		if(temp->uf == -1 && temp->df == 1)
 			printf("\nWarning: Symbol %s is defined but not used!\n", temp->sym);
 	}
 	return(isError > 0);

@@ -106,11 +106,11 @@ int main(int argc, char *argv[])
 					(strcasecmp(t1, "LTORG") != 0) &&
 					(strcasecmp(t1, "START") != 0)) 
 				{
-					printf("\n***Invalid Statement!***\n");
+					printf("\n\t***Invalid Statement!***\n");
 					++syntax_error;
 					break;
 				}
-				printf("\nNo error.\n");
+				printf("\n\tNo error.\n");
 				break;
 
 			case 2:
@@ -119,7 +119,7 @@ int main(int argc, char *argv[])
 					strcasecmp(t1, "END") == 0 ||
 					isCc(t1))
 				{
-					printf("\n***Invalid Statement!***\n");
+					printf("\n\t***Invalid Statement!***\n");
 					++syntax_error;
 					break;
 				}
@@ -130,7 +130,7 @@ int main(int argc, char *argv[])
 				{
 					if (isOptab(t1) || isRegtab(t1) || isDirtab(t1) || isStorage(t1) || isCc(t1))
 					{
-						printf("\n***Invalid Label!***\n");
+						printf("\n\t***Invalid Label!***\n");
 						++syntax_error;
 						break;
 					}
@@ -143,7 +143,7 @@ int main(int argc, char *argv[])
 				{
 					if (isOptab(t2) || isDirtab(t2) || isRegtab(t2) || isStorage(t2) || isCc(t2))
 					{
-						printf("\n***Invalid Symbol!***\n");
+						printf("\n\t***Invalid Symbol!***\n");
 						++syntax_error;
 						break;
 					}
@@ -154,13 +154,13 @@ int main(int argc, char *argv[])
 					n = atoi(t2);
 					if (n <= 0 || n > 999)
 					{
-						printf("\n***Invalid Memory Location!***\n");
+						printf("\n\t***Invalid Memory Location!***\n");
 						++syntax_error;
 						break;
 					}
 				}
 
-				printf("\nNo error.\n");
+				printf("\n\tNo error.\n");
 				break;
 
 			case 3:
@@ -168,13 +168,13 @@ int main(int argc, char *argv[])
 				{
 					if (isOptab(t1) || isDirtab(t1) || isRegtab(t1) || isStorage(t1) || isCc(t1))
 					{
-						printf("\n***Invalid Label!***\n");
+						printf("\n\t***Invalid Label!***\n");
 						++syntax_error;
 						break;
 					}
 					if (isOptab(t3) || isDirtab(t3) || isRegtab(t3) || isStorage(t3) || isCc(t3))
 					{
-						printf("\n***Invalid Symbol!***\n");
+						printf("\n\t***Invalid Symbol!***\n");
 						++syntax_error;
 						break;
 					}
@@ -188,22 +188,29 @@ int main(int argc, char *argv[])
 				{
 					if (!(isRegtab(t2)))
 					{
-						printf("\n***Invalid Register!***\n");
+						printf("\n\t***Invalid Register!***\n");
 						++syntax_error;
 						break;
 					}
 					if (isOptab(t3) || isDirtab(t3) || isRegtab(t3) || isStorage(t3) || isCc(t3))
 					{
-						printf("\n***Invalid Symbol!***\n");
+						printf("\n\t***Invalid Symbol!***\n");
 						++syntax_error;
 						break;
+					}
+					if(t3[0] == '=') {
+						if((t3[1] != '\'' || t3[strlen(t3)-1] != '\'') && (t3[1] != '\"' || t3[strlen(t3)-1] != '\"')) {
+							printf("\n\t***Invalid Literal!***\n");
+							++syntax_error;
+							break;
+						}
 					}
 				}
 				if (isStorage(t2))
 				{
 					if (isOptab(t1) || isDirtab(t1) || isRegtab(t1) || isStorage(t1) || isCc(t1))
 					{
-						printf("\n***Invalid Symbol!***\n");
+						printf("\n\t***Invalid Symbol!***\n");
 						++syntax_error;
 						break;
 					}
@@ -212,7 +219,7 @@ int main(int argc, char *argv[])
 						n = atoi(t3);
 						if (n <= 0 || n > 999)
 						{
-							printf("\n***Invalid Memory Location!***\n");
+							printf("\n\t***Invalid Memory Location!***\n");
 							++syntax_error;
 							break;
 						}
@@ -222,31 +229,31 @@ int main(int argc, char *argv[])
 				{
 					if (!isCc(t2))
 					{
-						printf("\n***Invalid Condition Code!***\n");
+						printf("\n\t***Invalid Condition Code!***\n");
 						++syntax_error;
 						break;
 					}
 					if (isOptab(t3) || isDirtab(t3) || isRegtab(t3) || isStorage(t3) || isCc(t3))
 					{
-						printf("\n***Invalid Symbol!***\n");
+						printf("\n\t***Invalid Symbol!***\n");
 						++syntax_error;
 						break;
 					}
 				}
-				printf("\nNo error.\n");
+				printf("\n\tNo error.\n");
 				break;
 
 			case 4:
 				if (isOptab(t1) || isDirtab(t1) || isRegtab(t1) || isStorage(t1) || isCc(t1))
 				{
-					printf("\n***Invalid Label!***\n");
+					printf("\n\t***Invalid Label!***\n");
 					++syntax_error;
 					break;
 				}
 
 				if ((!isOptab(t2)))
 				{
-					printf("\n***Invalid Statement!***\n");
+					printf("\n\t***Invalid Statement!***\n");
 					++syntax_error;
 					break;
 				}
@@ -255,22 +262,22 @@ int main(int argc, char *argv[])
 				{
 					if (!isRegtab(t3))
 					{
-						printf("\n***Invalid Register!***\n");
+						printf("\n\t***Invalid Register!***\n");
 						++syntax_error;
 						break;
 					}
 					if (isOptab(t4) || isDirtab(t4) || isRegtab(t4) || isStorage(t4) || isCc(t4))
 					{
-						printf("\n***Invalid Symbol!***\n");
+						printf("\n\t***Invalid Symbol!***\n");
 						++syntax_error;
 						break;
 					}
 				}
-				printf("\nNo error.\n");
+				printf("\n\tNo error.\n");
 				break;
 
 			default:
-				printf("\n***Invalid number of arguments!***\n");
+				printf("\n\t***Invalid number of arguments!***\n");
 				++syntax_error;
 				break;
 		}
@@ -423,7 +430,7 @@ int main(int argc, char *argv[])
 
     if(!symbol_error)
 	{
-        int loc_cnt = 0;
+        int loc_cnt = 0, isEnd = 0;
 		for(curr = head; curr; curr = curr->next)
 		{
 			inew = (INTCODE *)malloc(sizeof(INTCODE));
@@ -452,9 +459,10 @@ int main(int argc, char *argv[])
 						inew->addr = loc_cnt++;
 					}
 					else {
-						searchAd(t1);
+						searchAd(t1);					// END or LTORG
 						inew->regcode = 0;
 						inew->addr = -1;
+						isEnd = 1;
 					}
 					break;
 
@@ -573,6 +581,34 @@ int main(int argc, char *argv[])
 			{
 				icurr->next = inew;
 				icurr = inew;
+			}
+
+			// Another pass to process literals
+
+			if(isEnd) {
+				for(LITTAB *ltemp = lhead; ltemp; ltemp = ltemp->next) {
+					inew = (INTCODE *)malloc(sizeof(INTCODE));
+					strcpy(inew->opcode, "\0");
+					strcpy(inew->operand, "\0");
+					inew->regcode = 0; inew->addr = -1; inew->next = NULL;
+		
+					strcpy(inew->opcode, "<DL, 1>");
+					inew->regcode = 0;
+					int temp3 = atoi((ltemp->lit)+2);
+					sprintf(inew->operand, "<C, %d>", temp3);
+					inew->addr = ltemp->addr;
+
+					if(inew->addr != loc_cnt) {
+						free(inew);
+						continue;
+					}
+					else {
+						loc_cnt++;
+						icurr->next = inew;
+						icurr = inew;
+					}
+				}
+				isEnd = 0;
 			}
 		}   // end of for loop
 
